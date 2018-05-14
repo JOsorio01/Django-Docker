@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+    db:
+        image: postgres:10.3
+        env_file: .env
+        volumes:
+            - db_data:/var/lib/postgresql/data/pgdata
+
+    app:
+        build:
+            context: ./django_app
+        env_file: .env
