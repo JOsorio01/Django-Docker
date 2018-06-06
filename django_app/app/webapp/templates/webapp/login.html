@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'webapp/css/login.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <img id="ues_logo" src="{% static 'webapp/img/ues_logo.png' %}" alt="Logo UES" width="69x" height="87px">
+        <div id="titulo_header">
+            Universidad de El Salvador<br>
+            Facultad Multidisciplinaria de Occidente<br>
+            Ingenier&iacute;a de Sistemas Inform&aacute;ticos<br>
+            Protocolos de Comunicaci&oacute;n
+        </div>
+        <button id="btn_registrarse">Registrarse</button>
+    </header>
+
+    <h1 id="titulo_pagina">Servicio de correo electr&oacute;nico PDC135-2018</h1>
+
+    <div class="contenedor">
+        <p id="form_title">Iniciar Sesi&oacute;n</p>
+        <form id="login_form" action="#">
+            <div class="form_elements">
+                <label class="form_labels" for="email">Correo Electr&oacute;nico:</label>
+                <input class="form_inputs" id="email" type="email">
+                <label class="form_labels" for="password">Contrase&ntilde;a:</label>
+                <input class="form_inputs" id="password" type="password">
+                <input type="submit" id="btn_ingresar" value="Ingresar">
+            </div>
+        </form>
+    </div>
+
+    <script src="{% static 'webapp/js/login.js' %}">
+    </script>
+</body>
+</html>
