@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Extension, Reservante, Reserva
+
+admin.site.register(Extension)
+admin.site.register(Reservante)
+admin.site.register(Reserva)

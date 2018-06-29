@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'webapp/css/reservas.css' %}">
+    <title>Ver reservas</title>
+</head>
+<body>
+    {% include "webapp/header.html" %}
+    {% if error_message %}<p><strong style="color: black;">{{ error_message }}</strong></p>{% endif %}
+    <div class="contenedor" style="width: 1000px">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td style="border-top-left-radius: 7px">Reservante</td>
+                    <td>Email</td>
+                    <td>Fecha de Reserva</td>
+                    <td>Hora Inicio</td>
+                    <td style="border-top-right-radius: 7px">Hora Fin</td>
+                </tr>
+            </thead>
+            {% for res in reservas %}
+            <tr>
+                <td>{{ res.propietario.nombre }}</td>
+                <td>{{ res.propietario.email }}</td>
+                <td>{{ res.fecha_reserva }}</td>
+                <td>{{ res.hora_inicio }}</td>
+                <td>{{ res.hora_fin }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

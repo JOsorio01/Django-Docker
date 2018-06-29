@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'webapp/css/salas.css' %}">
+    <title>Reserva de Salas</title>
+</head>
+<body>
+    {% include 'webapp/header.html' %}
+
+    <div class="contenedor" style="width: 750px;">
+        <p class="form_title" style="text-align: center;">Reserva de Sala</p>
+        <form id='form_reservas' action="{% url 'webapp:reservas' %}" method="POST">
+            {% csrf_token %}
+            <div class="form_element" style="margin-top: 10px;">
+                <label class="form_labels" for="propietario">Nombre del que reserva: </label>
+                <input class="form_inputs" type="text" name="propietario" required>
+            </div>
+            <div class="form_element">
+                <label class="form_labels" for="email">Correo electr&oacute;nico: </label>
+                <input class="form_inputs" type="email" name="email" required>
+            </div>
+            <div class="form_element">
+                <label class="form_labels" for="numero">Tel&eacute;fono: </label>
+                <input class="number" type="text" name="numero" maxlength="8" required>
+                <label class="form_labels" for="extension">Extensi&oacute;n: </label>
+                <select name="extension" id="extension">
+                    {% if  extensiones %}
+                        {% for ext in extensiones %}
+                            <option value="{{ ext.id_extension }}">{{ ext }}</option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </div>
+            <div class="form_element">
+                <label class="form_labels" for="password">Contrase&ntilde;a de la sala: </label>
+                <input class="form_inputs" type="password" name="password" required>
+            </div>
+            <div class="form_element">
+                <label class="form_labels" for="fecha_reserva">Fecha a reservar: </label>
+                <input class="fecha" type="date" name="fecha_reserva" required>
+                <label class="form_labels" for="hora_inicio">Inicio: </label>
+                <input class="hora" type="time" name="hora_inicio" required>
+                <label class="form_labels" for="hora_fin">Fin: </label>
+                <input class="hora" type="time" name="hora_fin" required>
+            </div>
+            <div class="form_element">
+                <input id='submit' class="btn_reservar" type="submit" value="Reservar">
+            </div>
+        </form>
+        <script src="{% static 'webapp/js/reservas.js' %}"></script> 
+    </div>
+</body>
+</html>

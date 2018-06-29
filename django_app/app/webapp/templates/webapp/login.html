@@ -19,9 +19,9 @@
         <button id="btn_registrarse">Registrarse</button>
     </header>
 
-    <h1 id="titulo_pagina">Servicio de correo electr&oacute;nico PDC135-2018</h1>
+    <h1 id="titulo_pagina">Reservaci&oacute;n de salas de conferencia por llamada</h1>
 
-    <div class="contenedor">
+    <div class="contenedor" style="width: 420px;">
         <p id="form_title">Iniciar Sesi&oacute;n</p>
         <form id="login_form" action="#">
             <div class="form_elements">
@@ -33,7 +33,8 @@
             </div>
         </form>
     </div>
-
+    
+    {% include 'webapp/footer.html' %}
     <script src="{% static 'webapp/js/login.js' %}">
     </script>
 </body>
